@@ -155,7 +155,7 @@
     .noise-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 9998; opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
     }
     ::selection { background: rgba(0,210,255,0.3); color: #fff; }
     ::-webkit-scrollbar { width: 6px; }
@@ -174,6 +174,15 @@
       content: ''; position: absolute; inset: 0; border-radius: 50%;
       border: 1px solid #00D2FF; animation: pulse-ring 2s ease-out infinite;
     }
+
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .project-mini-card { padding: 1.5rem; border-radius: 1rem; background: rgba(17,17,17,0.6); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+    .project-mini-card:hover { transform: translateY(-4px); border-color: rgba(0,210,255,0.3); background: rgba(17,17,17,0.9); }
+    .project-mini-card h3 { font-weight: 600; color: white; margin-bottom: 0.5rem; }
+    .project-mini-card p { font-size: 0.875rem; color: #8A8A8A; margin-bottom: 1rem; }
+    .project-mini-card .links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .project-mini-card a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.2); border-radius: 0.5rem; font-size: 0.75rem; color: #00D2FF; text-decoration: none; transition: all 0.3s ease; }
+    .project-mini-card a:hover { background: rgba(0,210,255,0.2); border-color: #00D2FF; }
   </style>
 </head>
 <body class="antialiased">
@@ -197,7 +206,7 @@
           <a href="#about" class="nav-link font-body text-sm text-silverDark hover:text-silverLight transition-colors" data-hover>About</a>
           <a href="#projects" class="nav-link font-body text-sm text-silverDark hover:text-silverLight transition-colors" data-hover>Projects</a>
           <a href="#connect" class="nav-link font-body text-sm text-silverDark hover:text-silverLight transition-colors" data-hover>Connect</a>
-          <a href="mailto:muhammedraif6037@gmail.com" class="cta-btn inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon/10 border border-neon/30 text-neon font-heading font-medium text-sm" data-hover>
+          <a href="mailto:muhammedraif6037@gmail.com" class="cta-btn inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon/10 border border-neon/30 text-neon font-heading font-medium text-sm uppercase tracking-wider" data-hover>
             <span class="relative z-10">Hire Me</span>
             <i data-lucide="arrow-up-right" class="w-4 h-4 relative z-10"></i>
           </a>
@@ -217,7 +226,7 @@
     <a href="#about" class="mobile-nav-link font-heading text-3xl font-semibold text-silverLight hover:text-neon transition-colors" data-hover>About</a>
     <a href="#projects" class="mobile-nav-link font-heading text-3xl font-semibold text-silverLight hover:text-neon transition-colors" data-hover>Projects</a>
     <a href="#connect" class="mobile-nav-link font-heading text-3xl font-semibold text-silverLight hover:text-neon transition-colors" data-hover>Connect</a>
-    <a href="mailto:muhammedraif6037@gmail.com" class="cta-btn mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-neon/10 border border-neon/30 text-neon font-heading font-medium text-lg" data-hover>
+    <a href="mailto:muhammedraif6037@gmail.com" class="cta-btn mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-neon/10 border border-neon/30 text-neon font-heading font-medium text-sm uppercase tracking-wider" data-hover>
       <span class="relative z-10">Hire Me</span>
       <i data-lucide="arrow-up-right" class="w-5 h-5 relative z-10"></i>
     </a>
@@ -253,7 +262,7 @@
           <span class="relative z-10">View Projects</span>
           <i data-lucide="chevron-down" class="w-4 h-4 relative z-10"></i>
         </a>
-        <a href="mailto:muhammedraif6037@gmail.com" class="cta-btn inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-transparent border border-white/10 text-silverLight font-heading font-medium text-sm uppercase tracking-wider hover:border-neon/40" data-hover>
+        <a href="mailto:muhammedraif6037@gmail.com" class="cta-btn inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-transparent border border-white/10 text-silverLight font-heading font-medium text-sm uppercase tracking-wider" data-hover>
           <span class="relative z-10">Get in Touch</span>
           <i data-lucide="mail" class="w-4 h-4 relative z-10"></i>
         </a>
@@ -270,10 +279,10 @@
   <div class="relative py-6 border-y border-white/5 overflow-hidden bg-surface/50">
     <div class="flex whitespace-nowrap marquee-track">
       <span class="inline-flex items-center gap-12 px-6 font-body text-xs uppercase tracking-[0.2em] text-silverDark/40">
-        <span>React</span><span class="text-neon/30">◆</span><span>Next.js</span><span class="text-neon/30">◆</span><span>Tailwind CSS</span><span class="text-neon/30">◆</span><span>Node.js</span><span class="text-neon/30">◆</span><span>TypeScript</span><span class="text-neon/30">◆</span><span>Figma</span><span class="text-neon/30">◆</span><span>AI Integration</span><span class="text-neon/30">◆</span><span>REST APIs</span><span class="text-neon/30">◆</span><span>MongoDB</span><span class="text-neon/30">◆</span><span>Firebase</span><span class="text-neon/30">◆</span><span>Responsive Design</span><span class="text-neon/30">◆</span>
+        <span>React</span><span class="text-neon/30">◆</span><span>Next.js</span><span class="text-neon/30">◆</span><span>Tailwind CSS</span><span class="text-neon/30">◆</span><span>Node.js</span><span class="text-neon/30">◆</span><span>MongoDB</span>
       </span>
       <span class="inline-flex items-center gap-12 px-6 font-body text-xs uppercase tracking-[0.2em] text-silverDark/40">
-        <span>React</span><span class="text-neon/30">◆</span><span>Next.js</span><span class="text-neon/30">◆</span><span>Tailwind CSS</span><span class="text-neon/30">◆</span><span>Node.js</span><span class="text-neon/30">◆</span><span>TypeScript</span><span class="text-neon/30">◆</span><span>Figma</span><span class="text-neon/30">◆</span><span>AI Integration</span><span class="text-neon/30">◆</span><span>REST APIs</span><span class="text-neon/30">◆</span><span>MongoDB</span><span class="text-neon/30">◆</span><span>Firebase</span><span class="text-neon/30">◆</span><span>Responsive Design</span><span class="text-neon/30">◆</span>
+        <span>React</span><span class="text-neon/30">◆</span><span>Next.js</span><span class="text-neon/30">◆</span><span>Tailwind CSS</span><span class="text-neon/30">◆</span><span>Node.js</span><span class="text-neon/30">◆</span><span>MongoDB</span>
       </span>
     </div>
   </div>
@@ -305,10 +314,10 @@
           </div>
           <div class="reveal reveal-delay-1">
             <p class="font-body text-base text-silverDark leading-relaxed mb-6">
-              I am an Independent Web Developer & AI Solutions Specialist focused on building high-performance, visually stunning web experiences. I specialize in turning complex requirements into production-ready digital products with efficiency and precision.
+              I am an Independent Web Developer & AI Solutions Specialist focused on building high-performance, visually stunning web experiences. I specialize in turning complex requirements into production-ready digital solutions.
             </p>
             <p class="font-body text-sm text-silverDark/70 leading-relaxed mb-8">
-              Every project I take on is an opportunity to push boundaries — whether it's a luxury e-commerce platform, a high-converting ordering system, or an interactive digital archive. I combine clean code architecture with thoughtful design to deliver results that perform.
+              Every project I take on is an opportunity to push boundaries — whether it's a luxury e-commerce platform, a high-converting ordering system, or an interactive digital archive. I combine modern frontend architecture with strategic design thinking.
             </p>
           </div>
           <div class="reveal reveal-delay-2 flex flex-wrap gap-3 mb-8">
@@ -320,7 +329,7 @@
             <span class="tag-pill px-4 py-1.5 rounded-full font-body text-xs font-medium">API Development</span>
           </div>
           <div class="reveal reveal-delay-3 flex items-center gap-8">
-            <div><span class="font-heading text-3xl font-bold text-white">3+</span><p class="font-body text-xs text-silverDark mt-1">Featured Projects</p></div>
+            <div><span class="font-heading text-3xl font-bold text-white">6+</span><p class="font-body text-xs text-silverDark mt-1">Production Projects</p></div>
             <div class="w-px h-10 bg-white/10"></div>
             <div><span class="font-heading text-3xl font-bold text-white">100%</span><p class="font-body text-xs text-silverDark mt-1">Client Satisfaction</p></div>
             <div class="w-px h-10 bg-white/10"></div>
@@ -337,8 +346,8 @@
     <div class="relative max-w-7xl mx-auto px-6 md:px-12">
       <div class="text-center mb-16 md:mb-20">
         <span class="reveal font-body text-xs font-semibold uppercase tracking-[0.2em] text-neon/60 mb-4 block">Featured Work</span>
-        <h2 class="reveal reveal-delay-1 font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">The Big Three<span class="text-neon">.</span></h2>
-        <p class="reveal reveal-delay-2 font-body text-sm text-silverDark mt-4 max-w-lg mx-auto">A curated selection of production-grade projects that showcase my approach to design, development, and problem-solving.</p>
+        <h2 class="reveal reveal-delay-1 font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">Flagship Projects<span class="text-neon">.</span></h2>
+        <p class="reveal reveal-delay-2 font-body text-sm text-silverDark mt-4 max-w-lg mx-auto">A curated selection of production-grade projects that showcase my approach to design, development, and digital transformation.</p>
       </div>
 
       <!-- Kiona Store -->
@@ -355,7 +364,7 @@
           </div>
           <div class="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
             <h3 class="font-heading text-2xl md:text-3xl font-semibold text-white tracking-tight mb-3">Kiona Store</h3>
-            <p class="font-body text-sm text-silverDark leading-relaxed mb-6">A premium fashion e-commerce platform with a 'Modern Heritage' aesthetic. Features Instagram Reels integration for social proof and a fabric zoom system that lets customers inspect luxury ethnic wear textures up close — bridging the gap between physical and digital retail.</p>
+            <p class="font-body text-sm text-silverDark leading-relaxed mb-6">A premium fashion e-commerce platform with a 'Modern Heritage' aesthetic. Features Instagram Reels integration for social commerce, luxury design patterns, and optimized checkout flow.</p>
             <div class="flex flex-wrap gap-2 mb-6">
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">React</span>
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">E-Commerce</span>
@@ -363,9 +372,15 @@
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Zoom UI</span>
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Luxury Design</span>
             </div>
-            <div class="flex items-center gap-2 text-neon/70">
-              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-              <span class="font-body text-xs uppercase tracking-wider">Fashion & Ethnic Wear Platform</span>
+            <div class="flex items-center gap-4">
+              <a href="https://kiona-store.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neon/10 border border-neon/30 text-neon text-xs font-medium hover:bg-neon/20 transition-all">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/RAIFTP/KIONA-STORE" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-silverLight text-xs font-medium hover:bg-white/10 transition-all">
+                <i data-lucide="github" class="w-3 h-3"></i>
+                Repository
+              </a>
             </div>
           </div>
         </div>
@@ -376,7 +391,7 @@
         <div class="grid lg:grid-cols-2">
           <div class="p-8 md:p-10 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
             <h3 class="font-heading text-2xl md:text-3xl font-semibold text-white tracking-tight mb-3">Foodkeys Restaurant</h3>
-            <p class="font-body text-sm text-silverDark leading-relaxed mb-6">A high-converting food ordering system designed for the Koduvally region. Built with a signature digital menu that makes browsing effortless, real-time cart logic for instant updates, and a seamless 'Checkout-to-WhatsApp' flow that eliminates friction and maximizes completed orders.</p>
+            <p class="font-body text-sm text-silverDark leading-relaxed mb-6">A high-converting food ordering system designed for the Koduvally region. Built with a signature digital menu that maximizes social engagement and real-time cart logic with WhatsApp integration for seamless ordering.</p>
             <div class="flex flex-wrap gap-2 mb-6">
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Digital Menu</span>
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Real-time Cart</span>
@@ -384,9 +399,15 @@
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">UX Optimization</span>
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Mobile-First</span>
             </div>
-            <div class="flex items-center gap-2 text-neon/70">
-              <i data-lucide="utensils" class="w-4 h-4"></i>
-              <span class="font-body text-xs uppercase tracking-wider">Food Ordering System — Koduvally</span>
+            <div class="flex items-center gap-4">
+              <a href="https://foodkeysrestaurant.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neon/10 border border-neon/30 text-neon text-xs font-medium hover:bg-neon/20 transition-all">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/RAIFTP/foodkeys-official-web" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-silverLight text-xs font-medium hover:bg-white/10 transition-all">
+                <i data-lucide="github" class="w-3 h-3"></i>
+                Repository
+              </a>
             </div>
           </div>
           <div class="relative h-64 lg:h-auto overflow-hidden order-1 lg:order-2">
@@ -402,7 +423,7 @@
       </div>
 
       <!-- Sir Magdi Yacoub -->
-      <div class="reveal reveal-delay-2 project-card neon-border-glow rounded-2xl bg-surface/50 overflow-hidden" data-hover>
+      <div class="reveal reveal-delay-2 project-card neon-border-glow rounded-2xl bg-surface/50 overflow-hidden mb-12" data-hover>
         <div class="grid lg:grid-cols-2">
           <div class="relative h-64 lg:h-auto overflow-hidden">
             <img src="https://picsum.photos/seed/magdi-medical-archive/800/600.jpg" alt="Sir Magdi Yacoub Archive" class="project-img w-full h-full object-cover">
@@ -415,7 +436,7 @@
           </div>
           <div class="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
             <h3 class="font-heading text-2xl md:text-3xl font-semibold text-white tracking-tight mb-3">Sir Magdi Yacoub Archive</h3>
-            <p class="font-body text-sm text-silverDark leading-relaxed mb-6">A prestigious medical portfolio and digital archive honoring one of the world's greatest surgeons. Showcases surgical innovations and humanitarian impact through interactive timelines, rich media galleries, and a design language that befits a legacy of excellence in cardiovascular medicine.</p>
+            <p class="font-body text-sm text-silverDark leading-relaxed mb-6">A prestigious medical portfolio and digital archive honoring one of the world's greatest surgeons. Showcases surgical innovations, interactive timelines, and a comprehensive database of 2,500+ operations with rich media integration.</p>
             <div class="flex flex-wrap gap-2 mb-6">
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Interactive Timeline</span>
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Digital Archive</span>
@@ -423,9 +444,88 @@
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Rich Media</span>
               <span class="tag-pill px-3 py-1 rounded-full font-body text-[11px] font-medium">Prestigious Design</span>
             </div>
-            <div class="flex items-center gap-2 text-neon/70">
-              <i data-lucide="heart-pulse" class="w-4 h-4"></i>
-              <span class="font-body text-xs uppercase tracking-wider">Surgical Legacy & Humanitarian Archive</span>
+            <div class="flex items-center gap-4">
+              <a href="https://medical-portfolio-yacoub.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neon/10 border border-neon/30 text-neon text-xs font-medium hover:bg-neon/20 transition-all">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/RAIFTP/medical-portfolio-yacoub" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-silverLight text-xs font-medium hover:bg-white/10 transition-all">
+                <i data-lucide="github" class="w-3 h-3"></i>
+                Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Projects Grid -->
+      <div class="mt-20">
+        <div class="text-center mb-12">
+          <span class="reveal font-body text-xs font-semibold uppercase tracking-[0.2em] text-neon/60 mb-4 block">More Work</span>
+          <h3 class="reveal reveal-delay-1 font-heading text-2xl md:text-3xl font-semibold text-white tracking-tight">Additional Projects<span class="text-neon">.</span></h3>
+        </div>
+
+        <div class="project-grid">
+          <!-- Foodie Khana -->
+          <div class="reveal project-mini-card" data-hover>
+            <h3>Foodie Khana</h3>
+            <p>High-performance online ordering & booking website for food services with inventory management and real-time tracking capabilities.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="text-[10px] text-neon/60">React</span>
+              <span class="text-[10px] text-neon/60">•</span>
+              <span class="text-[10px] text-neon/60">E-Commerce</span>
+            </div>
+            <div class="links">
+              <a href="https://foodie-khana-online-ordering-bookin.vercel.app" target="_blank" rel="noopener">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Live
+              </a>
+              <a href="https://github.com/RAIFTP/foodie-khana-Online-Ordering-Booking-Website" target="_blank" rel="noopener">
+                <i data-lucide="github" class="w-3 h-3"></i>
+                Code
+              </a>
+            </div>
+          </div>
+
+          <!-- Sanji Hypermarket -->
+          <div class="reveal reveal-delay-1 project-mini-card" data-hover>
+            <h3>Sanji Hypermarket</h3>
+            <p>Digitizing Koduvally's favorite hypermarket with high-performance architecture and optimized user experience for local commerce.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="text-[10px] text-neon/60">React</span>
+              <span class="text-[10px] text-neon/60">•</span>
+              <span class="text-[10px] text-neon/60">Marketplace</span>
+            </div>
+            <div class="links">
+              <a href="https://sanji-hypermarket.vercel.app" target="_blank" rel="noopener">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Live
+              </a>
+              <a href="https://github.com/RAIFTP/sanji-hypermarket" target="_blank" rel="noopener">
+                <i data-lucide="github" class="w-3 h-3"></i>
+                Code
+              </a>
+            </div>
+          </div>
+
+          <!-- Kothiyanz Restaurant -->
+          <div class="reveal reveal-delay-2 project-mini-card" data-hover>
+            <h3>Kothiyanz Luxury Restaurant</h3>
+            <p>Luxury restaurant website inspired by Kerala hospitality, cinematic ambience, and modern dining culture with premium UX.</p>
+            <div class="flex flex-wrap gap-1 mb-4">
+              <span class="text-[10px] text-neon/60">JavaScript</span>
+              <span class="text-[10px] text-neon/60">•</span>
+              <span class="text-[10px] text-neon/60">Hospitality</span>
+            </div>
+            <div class="links">
+              <a href="https://kothiyanz.vercel.app" target="_blank" rel="noopener">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Live
+              </a>
+              <a href="https://github.com/RAIFTP/kothiyanz-website" target="_blank" rel="noopener">
+                <i data-lucide="github" class="w-3 h-3"></i>
+                Code
+              </a>
             </div>
           </div>
         </div>
@@ -463,7 +563,7 @@
         <a href="tel:+917034606037" class="reveal reveal-delay-1 social-link rounded-2xl bg-surface/60 border border-white/5 p-6 flex flex-col items-center text-center gap-3 group" data-hover>
           <div class="brand-icon w-14 h-14 flex items-center justify-center">
             <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.83 8.59L6.62 10.79Z"/>
+              <path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.51C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.43 9.07 7.53C9.25 8.02 9.04 8.62 8.56 8.91L6.62 10.79Z"/>
             </svg>
           </div>
           <div>
@@ -476,7 +576,7 @@
         <a href="https://linkedin.com/in/raif-tp-5008b7387" target="_blank" rel="noopener" class="reveal reveal-delay-2 social-link rounded-2xl bg-surface/60 border border-white/5 p-6 flex flex-col items-center text-center gap-3 group" data-hover>
           <div class="brand-icon w-14 h-14 flex items-center justify-center">
             <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.843 15.041 11.843C13.188 11.843 12.913 13.298 12.913 14.802V20.452H9.358V9H12.808V10.562H12.854C13.32 9.663 14.478 8.713 16.209 8.713C19.809 8.713 20.448 11.082 20.448 14.167V20.452ZM5.337 7.433C4.146 7.433 3.18 6.464 3.18 5.276C3.18 4.088 4.146 3.119 5.337 3.119C6.526 3.119 7.494 4.088 7.494 5.276C7.494 6.464 6.526 7.433 5.337 7.433ZM7.12 20.452H3.555V9H7.12V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z"/>
+              <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.843 15.041 11.843C13.188 11.843 12.913 13.298 12.913 14.802V20.452H9.358V9H12.808V10.562H12.854C13.32 9.663 14.478 8.71 16.174 8.71C20.016 8.71 20.822 11.231 20.822 14.515V20.452H20.447ZM5.337 7.433C4.192 7.433 3.281 6.52 3.281 5.375C3.281 4.23 4.192 3.318 5.337 3.318C6.482 3.318 7.393 4.23 7.393 5.375C7.393 6.52 6.482 7.433 5.337 7.433ZM7.114 20.452H3.56V9H7.114V20.452ZM23.176 0H0.824C0.368 0 0 0.368 0 0.824V23.176C0 23.632 0.368 24 0.824 24H23.176C23.632 24 24 23.632 24 23.176V0.824C24 0.368 23.632 0 23.176 0Z"/>
             </svg>
           </div>
           <div>
@@ -489,7 +589,7 @@
         <a href="https://github.com/RAIFTP" target="_blank" rel="noopener" class="reveal reveal-delay-3 social-link rounded-2xl bg-surface/60 border border-white/5 p-6 flex flex-col items-center text-center gap-3 group" data-hover>
           <div class="brand-icon w-14 h-14 flex items-center justify-center">
             <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9.027 23.128 9.027 22.807C9.027 22.518 9.018 21.665 9.013 20.629C5.672 21.367 4.968 19.074 4.968 19.074C4.422 17.727 3.634 17.354 3.634 17.354C2.546 16.597 3.718 16.613 3.718 16.613C4.922 16.694 5.556 17.844 5.556 17.844C6.626 19.662 8.363 19.11 9.048 18.798C9.156 17.986 9.468 17.435 9.81 17.129C7.146 16.819 4.345 15.811 4.345 11.261C4.345 9.967 4.81 8.907 5.579 8.074C5.455 7.765 5.044 6.564 5.696 4.937C5.696 4.937 6.687 4.611 9.002 6.133C9.953 5.862 10.98 5.726 12 5.722C13.02 5.726 14.047 5.862 15 6.133C17.313 4.611 18.302 4.937 18.302 4.937C18.956 6.564 18.545 7.765 18.421 8.074C19.192 8.907 19.653 9.967 19.653 11.261C19.653 15.821 16.847 16.815 14.175 17.117C14.603 17.492 14.987 18.234 14.987 19.354C14.987 20.955 14.975 22.244 14.975 22.807C14.975 23.131 15.193 23.504 15.801 23.387C20.566 21.796 24 17.298 24 12C24 5.373 18.627 0 12 0Z"/>
+              <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9.027 23.128 9.027 22.807C9.027 22.518 9.018 21.665 9.013 20.629C5.672 21.367 4.968 19.074 4.968 19.074C4.422 17.713 3.633 17.341 3.633 17.341C2.546 16.627 3.717 16.642 3.717 16.642C4.922 16.724 5.555 17.844 5.555 17.844C6.625 19.676 8.408 19.13 9.044 18.821C9.152 18.088 9.466 17.598 9.81 17.305C7.145 17.01 4.343 15.971 4.343 11.373C4.343 10.088 4.813 8.998 5.577 8.123C5.458 7.828 5.052 6.628 5.691 4.993C5.691 4.993 6.735 4.668 8.999 6.22C9.999 5.953 11.066 5.822 12.13 5.817C13.194 5.822 14.261 5.953 15.263 6.22C17.527 4.668 18.571 4.993 18.571 4.993C19.21 6.628 18.804 7.828 18.686 8.123C19.45 8.998 19.921 10.088 19.921 11.373C19.921 15.985 17.116 17.009 14.443 17.298C14.878 17.659 15.27 18.374 15.27 19.467C15.27 21.027 15.259 22.268 15.259 22.807C15.259 23.128 15.48 23.502 16.086 23.387C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
             </svg>
           </div>
           <div>
@@ -499,11 +599,11 @@
         </a>
 
         <!-- INSTAGRAM -->
-        <a href="https://instagram.com/_.raiftp._" target="_blank" rel="noopener" class="reveal reveal-delay-4 social-link rounded-2xl bg-surface/60 border border-white/5 p-6 flex flex-col items-center text-center gap-3 group col-span-2 sm:col-span-1" data-hover>
+        <a href="https://instagram.com/_.raiftp._" target="_blank" rel="noopener" class="reveal reveal-delay-4 social-link rounded-2xl bg-surface/60 border border-white/5 p-6 flex flex-col items-center text-center gap-3 group" data-hover>
           <div class="brand-icon w-14 h-14 flex items-center justify-center">
             <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C18.013 2.285 18.645 2.48 19.077 2.646C19.647 2.86 20.053 3.117 20.481 3.545C20.909 3.973 21.166 4.379 21.38 4.949C21.546 5.381 21.741 6.013 21.793 7.176C21.851 8.442 21.863 8.822 21.863 12.026C21.863 15.23 21.851 15.61 21.793 16.876C21.741 18.039 21.546 18.671 21.38 19.103C21.166 19.673 20.909 20.079 20.481 20.507C20.053 20.935 19.647 21.192 19.077 21.406C18.645 21.572 18.013 21.767 16.85 21.819C15.584 21.877 15.204 21.889 12 21.889C8.796 21.889 8.416 21.877 7.15 21.819C5.987 21.767 5.355 21.572 4.923 21.406C4.353 21.192 3.947 20.935 3.519 20.507C3.091 20.079 2.834 19.673 2.62 19.103C2.454 18.671 2.259 18.039 2.207 16.876C2.149 15.61 2.137 15.23 2.137 12.026C2.137 8.822 2.149 8.442 2.207 7.176C2.259 6.013 2.454 5.381 2.62 4.949C2.834 4.379 3.091 3.973 3.519 3.545C3.947 3.117 4.353 2.86 4.923 2.646C5.355 2.48 5.987 2.285 7.15 2.233C8.416 2.175 8.796 2.163 12 2.163ZM12 0.026C8.741 0.026 8.333 0.04 7.053 0.099C5.775 0.158 4.903 0.362 4.14 0.666C3.351 0.98 2.681 1.397 2.014 2.065C1.347 2.733 0.93 3.403 0.616 4.191C0.312 4.955 0.108 5.826 0.049 7.104C-0.01 8.384 0.003 8.792 0.003 12.051C0.003 15.31 -0.01 15.718 0.049 16.998C0.108 18.276 0.312 19.147 0.616 19.911C0.93 20.7 1.347 21.37 2.014 22.037C2.681 22.705 3.351 23.122 4.14 23.436C4.903 23.74 5.775 23.944 7.053 24.003C8.333 24.062 8.741 24.076 12 24.076C15.259 24.076 15.667 24.062 16.947 24.003C18.225 23.944 19.097 23.74 19.86 23.436C20.649 23.122 21.319 22.705 21.986 22.037C22.654 21.37 23.071 20.7 23.385 19.911C23.689 19.147 23.893 18.276 23.952 16.998C24.011 15.718 24.024 15.31 24.024 12.051C24.024 8.792 24.011 8.384 23.952 7.104C23.893 5.826 23.689 4.955 23.385 4.191C23.071 3.403 22.654 2.733 21.986 2.065C21.319 1.397 20.649 0.98 19.86 0.666C19.097 0.362 18.225 0.158 16.947 0.099C15.667 0.04 15.259 0.026 12 0.026Z"/>
-              <path d="M12 5.838C8.595 5.838 5.832 8.601 5.832 12.006C5.832 15.411 8.595 18.174 12 18.174C15.405 18.174 18.168 15.411 18.168 12.006C18.168 8.601 15.405 5.838 12 5.838ZM12 16.004C9.794 16.004 7.999 14.209 7.999 12.004C7.999 9.799 9.794 8.004 12 8.004C14.206 8.004 16.001 9.799 16.001 12.004C16.001 14.209 14.206 16.004 12 16.004Z"/>
+              <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C18.013 2.285 18.645 2.48 19.077 2.646C19.647 2.86 20.053 3.117 20.481 3.545C20.909 3.973 21.166 4.379 21.38 4.949C21.546 5.381 21.741 6.013 21.793 7.15C21.851 8.416 21.863 8.796 21.863 12.001C21.863 15.206 21.851 15.586 21.793 16.852C21.741 17.989 21.546 18.621 21.38 19.053C21.166 19.623 20.909 20.029 20.481 20.457C20.053 20.885 19.647 21.142 19.077 21.356C18.645 21.522 18.013 21.717 16.85 21.769C15.586 21.827 15.206 21.839 12 21.839C8.794 21.839 8.414 21.827 7.15 21.769C5.987 21.717 5.355 21.522 4.923 21.356C4.353 21.142 3.947 20.885 3.519 20.457C3.091 20.029 2.834 19.623 2.62 19.053C2.454 18.621 2.259 17.989 2.207 16.852C2.149 15.586 2.137 15.206 2.137 12.001C2.137 8.796 2.149 8.416 2.207 7.15C2.259 6.013 2.454 5.381 2.62 4.949C2.834 4.379 3.091 3.973 3.519 3.545C3.947 3.117 4.353 2.86 4.923 2.646C5.355 2.48 5.987 2.285 7.15 2.233C8.414 2.175 8.794 2.163 12 2.163M12 0C8.741 0 8.333 0.014 7.053 0.072C5.775 0.13 4.902 0.333 4.151 0.63C3.372 0.936 2.714 1.355 2.059 2.011C1.403 2.666 0.984 3.324 0.679 4.102C0.381 4.852 0.178 5.721 0.12 6.997C0.061 8.277 0.046 8.685 0.046 11.944C0.046 15.203 0.061 15.611 0.12 16.891C0.178 18.167 0.381 19.036 0.679 19.787C0.984 20.565 1.403 21.223 2.059 21.878C2.714 22.533 3.372 22.952 4.151 23.257C4.902 23.555 5.775 23.758 7.053 23.815C8.333 23.873 8.741 23.888 12 23.888C15.259 23.888 15.667 23.873 16.947 23.815C18.225 23.758 19.098 23.555 19.849 23.257C20.627 22.952 21.286 22.533 21.941 21.878C22.596 21.223 23.015 20.565 23.32 19.787C23.619 19.036 23.822 18.167 23.88 16.891C23.939 15.611 23.954 15.203 23.954 11.944C23.954 8.685 23.939 8.277 23.88 6.997C23.822 5.721 23.619 4.852 23.32 4.102C23.015 3.324 22.596 2.666 21.941 2.011C21.286 1.355 20.627 0.936 19.849 0.63C19.098 0.333 18.225 0.13 16.947 0.072C15.667 0.014 15.259 0 12 0Z"/>
+              <circle cx="12" cy="12" r="3.846"/>
               <circle cx="18.406" cy="5.594" r="1.44"/>
             </svg>
           </div>
@@ -521,7 +621,7 @@
           <span class="relative z-10">Start a Conversation</span>
           <i data-lucide="send" class="w-4 h-4 relative z-10"></i>
         </a>
-        <a href="tel:+917034606037" class="cta-btn inline-flex items-center gap-3 px-10 py-4 rounded-full bg-transparent border border-white/10 text-silverLight font-heading font-medium text-sm uppercase tracking-wider hover:border-neon/40" data-hover>
+        <a href="tel:+917034606037" class="cta-btn inline-flex items-center gap-3 px-10 py-4 rounded-full bg-transparent border border-white/10 text-silverLight font-heading font-medium text-sm uppercase tracking-wider" data-hover>
           <span class="relative z-10">Call Me</span>
           <i data-lucide="phone" class="w-4 h-4 relative z-10"></i>
         </a>
@@ -612,7 +712,7 @@
     const pc = document.getElementById('particles');
     for (let i = 0; i < 20; i++) {
       const d = document.createElement('div');
-      d.style.cssText = `position:absolute;border-radius:50%;background:#00D2FF;opacity:0;width:${Math.random()*2+1}px;height:${d.style.width};left:${Math.random()*100}%;animation:float-up ${Math.random()*10+12}s linear infinite;animation-delay:${Math.random()*10}s;`;
+      d.style.cssText = `position:absolute;border-radius:50%;background:#00D2FF;opacity:0;width:${Math.random()*2+1}px;height:${d.style.width};left:${Math.random()*100}%;animation:float-up ${Math.random()*6+8}s ease-in infinite`;
       d.style.height = d.style.width;
       pc.appendChild(d);
     }
